@@ -1,0 +1,219 @@
+bit 
+ --> pinMode("#pin" , Output) -> salida
+--> pinMode("#pin" , Input) -> Entrada
+
+Puerto
+ --> DDRB (0B0000000);  ---> Puerto B de entrada
+ -> 1 -> Salida
+ -> 0 -> Entrada
+--> DDRB(0B11000110)  B7 salida -> B0 entrada (Derecha a izquierda)
+
+if( digitalRead(#pin)==1)
+
+Por puerto
+
+pin#letrapuerto==255 todo en salida
+
+
+int lDA = 22;
+int ADD = 23;
+int SUB = 24;
+int MULT = 25;
+int DIVI = 26;
+int call = 27;
+int return = 28;
+int opc1 = 29;
+int opc2 = 30;
+int out = 31;
+int HLT = 32;
+int adc = 33;
+int goto = 34;
+int LA = 35;
+int EA = 36;
+int EU = 37; 
+int LB = 38;
+int LO = 39;
+int LI =  40;
+int EI = 41;
+int ER = 42;
+int LM = 43;
+int EP = 44;
+int SU = 45;
+int RE = 46;
+int ML = 47;
+int DV = 48;
+int PC;
+int salto;
+
+void Setup(){
+DDRA(0B00000000);
+DDRC(0B00000111);
+pinMode(LB,1);
+pinMode(LO,1);
+pinMode(LI,1);
+pinMode(EI,1);
+pinMode(ER,1);
+pinMode(LM,1);
+pinMode(EP,1);
+pinMode(SU,1);
+pinMode(RE,1);
+pinMode(ML,1);
+pinMode(DV,1);
+PC=0;
+}
+
+void Loop(){
+PORTF=PC;
+digitalWrite(EP,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EP,0);
+digitalWrite(ER,1);
+digitalWrite(LI,1);
+delay(100);
+digitalWrite(LI,0);
+digitalWrite(ER,0);
+
+if (digitalRead(LDA==1){
+digitalWrite(EI,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EI,0);
+digitalWrite(ER,1);
+digitalWrite(LA,1);
+delay(100);
+digitalWrite(LA,0);
+digitalWrite(ER,0);
+PC++;
+}
+
+if(digitalRead(ADD==1)){
+digitalWrite(EI,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EI,0);
+digitalWrite(ER,1);
+digitalWrite(LB,1);
+delay(100);
+digitalWrite(LB,0);
+digitalWrite(ER,0);
+digitalWrite(LB,1);
+digitalWrite(SU,1);
+digitalWrite(EU,1);
+delay(100);
+digitalWrite(SU,0);
+digitalWrite(LA,1);
+delay(100);
+digitalWrite(LA,0);
+digitalWrite(EU,0);
+PC++;
+}
+
+if(digitalRead(SUB==1)){
+digitalWrite(EI,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EI,0);
+digitalWrite(ER,1);
+digitalWrite(LB,1);
+delay(100);
+digitalWrite(LB,0);
+digitalWrite(ER,0);
+digitalWrite(LB,1);
+digitalWrite(RE,1);
+digitalWrite(EU,1);
+delay(100);
+digitalWrite(RE,0);
+digitalWrite(LA,1);
+delay(100);
+digitalWrite(LA,0);
+digitalWrite(EU,0);
+PC++;
+}
+
+
+if(d1igitalRead(MULT==1)){
+digitalWrite(EI,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EI,0);
+digitalWrite(ER,1);
+digitalWrite(LB,1);
+delay(100);
+digitalWrite(LB,0);
+digitalWrite(ER,0);
+digitalWrite(LB,1);
+digitalWrite(ML,1);
+digitalWrite(EU,1);
+delay(100);
+digitalWrite(ML,0);
+digitalWrite(LA,1);
+delay(100);
+digitalWrite(LA,0);
+digitalWrite(EU,0);
+PC++;
+}
+
+
+if(digitalRead(DIVI==1)){
+digitalWrite(EI,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EI,0);
+digitalWrite(ER,1);
+digitalWrite(LB,1);
+delay(100);
+digitalWrite(LB,0);
+digitalWrite(ER,0);
+digitalWrite(LB,1);
+digitalWrite(DV,1);
+digitalWrite(EU,1);
+delay(100);
+digitalWrite(DV,0);
+digitalWrite(LA,1);
+delay(100);
+digitalWrite(LA,0);
+digitalWrite(EU,0);
+PC++;
+}
+
+if(digitalRead(call==1)){
+salto = PC+1;
+digitalWrite(EI,1);
+PC= PORTF;
+}
+
+if(digitalRead(HTL==1)){
+digitalWrite(EP,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EP,0);
+}
+
+if(digitalRead(out==1)){
+digitalWrite(EP,1);
+digitalWrite(LM,1);
+delay(100);
+digitalWrite(LM,0);
+digitalWrite(EP,0);
+digitalWrite(ER,1);
+digitalWrite(LI,1);
+delay(100);
+digitalWrite(LI,0);
+digitalWrite(ER,0);
+digitalWrite(EA,1);
+digitalWrite(LO,1);
+delay(100);
+digitalWrite(LO,0);
+digitalWrite(EA,0);
+}
+
+
+}

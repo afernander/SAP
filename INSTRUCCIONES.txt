@@ -1,0 +1,141 @@
+Alejandro Fernandez Restrepo
+DECIMAL - HEXA
+LDA 1001 9 9
+ADD 1100 12 C
+SUB 1010 10 A
+MUL 1101 13 D
+DIV 0110 6 6
+CALL 1011 11 B
+GOTO 0111 7 7
+RETURN 1000 8 8
+OPC 1 0001 1 1
+OPC 2 0010 2 2
+OUT 0100 4 4
+HLT 1110 14 E
+Additional 0101 5 5
+
+EN HEXA DECIMAL 
+
+LDA RA ES :
+9   A
+LDA Y POSICION DE MEMORIA DE RA
+OPC1 :  Se le suma 1 al numero que esta en el acomulador a
+
+OPC2 : Si el numero es par se le suma 2 y si el numero es impar se le suma 1.
+
+==============
+Programa 1:
+
+variables(
+ RA=28
+ RB=15
+)
+
+LDA RA
+GOTO R3
+OPC1
+SUB RB
+ADD RA
+OUT
+HTL
+
+BINARIO:
+
+10011010
+01110011
+00010000
+10101011
+11001010
+11110000
+11100000
+
+Hexadecimal:
+
+9A
+73
+10
+AB
+CA
+F0
+E0
+
+==============
+Programa 2:
+
+variables(
+ RA=10
+ RB=25
+ RC=5
+)
+
+LDA RA
+GOTO R3
+OPC2
+ADD RB
+SUB RC
+SUB RC
+OUT
+HTL
+
+BINARIO:
+
+10011010
+01110011
+00100000
+11001011
+10101100
+10101100
+11110000
+11100000
+
+Hexadecimal:
+
+9A
+73
+20
+CB
+AC
+AC
+F0
+E0
+
+==============
+Programa 3:
+
+variables(
+ RA=6
+ RB=8
+ RC=12
+ RD=2
+)
+
+LDA RA
+ADD RC
+SUB RB
+MUL RD
+ADD RB
+SUB RC
+OUT
+HTL
+
+BINARIO:
+
+10011010
+11001100
+10101011
+11011101
+11001011
+10101100
+11110000
+11100000
+
+Hexadecimal:
+
+9A
+CC
+AB
+DD
+CB
+AC
+F0
+E0
